@@ -1,0 +1,778 @@
+{
+    "analyses": [
+        {
+            "analysis": "fastqc", 
+            "args": [
+                "${bam}"
+            ], 
+            "description": "FASTQC tool from Babraham Bioinformatics", 
+            "enable": 1, 
+            "inputFormat": "bam", 
+            "modules": [
+                "${fastqcModule}"
+            ], 
+            "outdirs": [
+                {
+                    "d_fastqc": "${outdir}/fastqc"
+                }
+            ], 
+            "params": {
+                "--outdir": "${d_fastqc}", 
+                "--threads": 5
+            }, 
+            "program": "fastqc", 
+            "qsub": {
+                "mem": "8G", 
+                "name": "FastQC"
+            }
+        }, 
+        {
+            "analysis": "flagstat", 
+            "args": [
+                "${bam}", 
+                ">", 
+                "${f_flagstat}"
+            ], 
+            "description": "samtools flagstat", 
+            "enable": 1, 
+            "inputFormat": "bam", 
+            "modules": [
+                "${samtoolsModule}"
+            ], 
+            "outdirs": [
+                {
+                    "d_flagstat": "${outdir}/flagstat"
+                }
+            ], 
+            "outfiles": [
+                {
+                    "f_flagstat": "${d_flagstat}/flagstat.txt"
+                }
+            ], 
+            "program": "samtools flagstat", 
+            "qsub": {
+                "mem": "3G", 
+                "name": "flagstat", 
+                "slots": 1
+            }
+        }, 
+        {
+            "analysis": "DepthOfCoverageRefseqExonsQ0", 
+            "description": "GATK's DepthOfCoverage of >= Q0 bases over RefSeq exons", 
+            "enable": 1, 
+            "inputFormat": "bam", 
+            "jar": "${GATK}/GenomeAnalysisTK.jar", 
+            "javavm": "-Xmx5G", 
+            "modules": [
+                "${javaModule}"
+            ], 
+            "outdirs": [
+                {
+                    "d_depthOfCoverageRefSeqExonQ0": "${outdir}/coverage"
+                }
+            ], 
+            "outfiles": [
+                {
+                    "f_depthOfCoverage_refseq_exons_coverage_hist_Q0": "${d_depthOfCoverageRefSeqExonQ0}/refseq_exons_coverage_hist_Q0.txt"
+                }
+            ], 
+            "params": {
+                "--summaryCoverageThreshold": "10", 
+                "-I": "${bam}", 
+                "-L": "${refseq_exons}", 
+                "-R": "${reference}", 
+                "-T": "DepthOfCoverage", 
+                "-o": "${f_depthOfCoverage_refseq_exons_coverage_hist_Q0}"
+            }, 
+            "qsub": {
+                "mem": "12G", 
+                "name": "DepthOfCoverageRefseqExonsQ0", 
+                "slots": 1
+            }
+        }, 
+        {
+            "analysis": "DepthOfCoverageRefseqExonsQ10", 
+            "description": "GATK's DepthOfCoverage of >= Q10 bases over RefSeq exons", 
+            "enable": 1, 
+            "inputFormat": "bam", 
+            "jar": "${GATK}/GenomeAnalysisTK.jar", 
+            "javavm": "-Xmx5G", 
+            "modules": [
+                "${javaModule}"
+            ], 
+            "outdirs": [
+                {
+                    "d_depthOfCoverageRefSeqExonQ10": "${outdir}/coverage"
+                }
+            ], 
+            "outfiles": [
+                {
+                    "f_depthOfCoverage_refseq_exons_coverage_hist_Q10": "${d_depthOfCoverageRefSeqExonQ10}/refseq_exons_coverage_hist_Q10.txt"
+                }
+            ], 
+            "params": {
+                "--summaryCoverageThreshold": "10", 
+                "-I": "${bam}", 
+                "-L": "${refseq_exons}", 
+                "-R": "${reference}", 
+                "-T": "DepthOfCoverage", 
+                "-mbq": "10", 
+                "-o": "${f_depthOfCoverage_refseq_exons_coverage_hist_Q10}"
+            }, 
+            "qsub": {
+                "mem": "12G", 
+                "name": "DepthOfCoverageRefseqExonsQ10", 
+                "slots": 1
+            }
+        }, 
+        {
+            "analysis": "DepthOfCoverageRefseqExonsQ20", 
+            "description": "GATK's DepthOfCoverage of >= Q20 bases over RefSeq exons", 
+            "enable": 1, 
+            "inputFormat": "bam", 
+            "jar": "${GATK}/GenomeAnalysisTK.jar", 
+            "javavm": "-Xmx5G", 
+            "modules": [
+                "${javaModule}"
+            ], 
+            "outdirs": [
+                {
+                    "d_depthOfCoverageRefSeqExonQ20": "${outdir}/coverage"
+                }
+            ], 
+            "outfiles": [
+                {
+                    "f_depthOfCoverage_refseq_exons_coverage_hist_Q20": "${d_depthOfCoverageRefSeqExonQ20}/refseq_exons_coverage_hist_Q20.txt"
+                }
+            ], 
+            "params": {
+                "--summaryCoverageThreshold": "10", 
+                "-I": "${bam}", 
+                "-L": "${refseq_exons}", 
+                "-R": "${reference}", 
+                "-T": "DepthOfCoverage", 
+                "-mbq": "20", 
+                "-o": "${f_depthOfCoverage_refseq_exons_coverage_hist_Q20}"
+            }, 
+            "qsub": {
+                "mem": "12G", 
+                "name": "DepthOfCoverageRefseqExonsQ20", 
+                "slots": 1
+            }
+        }, 
+        {
+            "analysis": "DepthOfCoverageRefseqExonsQ30", 
+            "description": "GATK's DepthOfCoverage of >= Q30 bases over RefSeq exons", 
+            "enable": 1, 
+            "inputFormat": "bam", 
+            "jar": "${GATK}/GenomeAnalysisTK.jar", 
+            "javavm": "-Xmx5G", 
+            "modules": [
+                "${javaModule}"
+            ], 
+            "outdirs": [
+                {
+                    "d_depthOfCoverageRefSeqExonQ30": "${outdir}/coverage"
+                }
+            ], 
+            "outfiles": [
+                {
+                    "f_depthOfCoverage_refseq_exons_coverage_hist_Q30": "${d_depthOfCoverageRefSeqExonQ30}/refseq_exons_coverage_hist_Q30.txt"
+                }
+            ], 
+            "params": {
+                "--summaryCoverageThreshold": "10", 
+                "-I": "${bam}", 
+                "-L": "${refseq_exons}", 
+                "-R": "${reference}", 
+                "-T": "DepthOfCoverage", 
+                "-mbq": "30", 
+                "-o": "${f_depthOfCoverage_refseq_exons_coverage_hist_Q30}"
+            }, 
+            "qsub": {
+                "mem": "12G", 
+                "name": "DepthOfCoverageRefseqExonsQ30", 
+                "slots": 1
+            }
+        }, 
+        {
+            "analysis": "DepthOfCoverageGenomeQ0", 
+            "description": "GATK's DepthOfCoverage of >= Q0 bases", 
+            "enable": 1, 
+            "inputFormat": "bam", 
+            "jar": "${GATK}/GenomeAnalysisTK.jar", 
+            "javavm": "-Xmx5G", 
+            "modules": [
+                "${javaModule}"
+            ], 
+            "outdirs": [
+                {
+                    "d_depthOfCoverageGenomeQ0": "${outdir}/coverage"
+                }
+            ], 
+            "outfiles": [
+                {
+                    "f_depthOfCoverage_genome_coverage_hist_Q0": "${d_depthOfCoverageGenomeQ0}/genome_coverage_hist_Q0.txt"
+                }
+            ], 
+            "params": {
+                "--summaryCoverageThreshold": "10", 
+                "-I": "${bam}", 
+                "-R": "${reference}", 
+                "-T": "DepthOfCoverage", 
+                "-o": "${f_depthOfCoverage_genome_coverage_hist_Q0}"
+            }, 
+            "qsub": {
+                "-l": "h_rt=48:00:00", 
+                "mem": "12G", 
+                "name": "DepthOfCoverageGenomeQ0", 
+                "slots": 1
+            }
+        }, 
+        {
+            "analysis": "DepthOfCoverageGenomeQ10", 
+            "description": "GATK's DepthOfCoverage of >= Q10 bases", 
+            "enable": 1, 
+            "inputFormat": "bam", 
+            "jar": "${GATK}/GenomeAnalysisTK.jar", 
+            "javavm": "-Xmx5G", 
+            "modules": [
+                "${javaModule}"
+            ], 
+            "outdirs": [
+                {
+                    "d_depthOfCoverageGenomeQ10": "${outdir}/coverage"
+                }
+            ], 
+            "outfiles": [
+                {
+                    "f_depthOfCoverage_genome_coverage_hist_Q10": "${d_depthOfCoverageGenomeQ10}/genome_coverage_hist_Q10.txt"
+                }
+            ], 
+            "params": {
+                "--summaryCoverageThreshold": "10", 
+                "-I": "${bam}", 
+                "-R": "${reference}", 
+                "-T": "DepthOfCoverage", 
+                "-mbq": "10", 
+                "-o": "${f_depthOfCoverage_genome_coverage_hist_Q10}"
+            }, 
+            "qsub": {
+                "-l": "h_rt=48:00:00", 
+                "mem": "12G", 
+                "name": "DepthOfCoverageGenomeQ10", 
+                "slots": 1
+            }
+        }, 
+        {
+            "analysis": "DepthOfCoverageGenomeQ20", 
+            "description": "GATK's DepthOfCoverage of >= Q20 bases", 
+            "enable": 1, 
+            "inputFormat": "bam", 
+            "jar": "${GATK}/GenomeAnalysisTK.jar", 
+            "javavm": "-Xmx5G", 
+            "modules": [
+                "${javaModule}"
+            ], 
+            "outdirs": [
+                {
+                    "d_depthOfCoverageGenomeQ20": "${outdir}/coverage"
+                }
+            ], 
+            "outfiles": [
+                {
+                    "f_depthOfCoverage_genome_coverage_hist_Q20": "${d_depthOfCoverageGenomeQ20}/genome_coverage_hist_Q20.txt"
+                }
+            ], 
+            "params": {
+                "--summaryCoverageThreshold": "10", 
+                "-I": "${bam}", 
+                "-R": "${reference}", 
+                "-T": "DepthOfCoverage", 
+                "-mbq": "20", 
+                "-o": "${f_depthOfCoverage_genome_coverage_hist_Q20}"
+            }, 
+            "qsub": {
+                "-l": "h_rt=48:00:00", 
+                "mem": "12G", 
+                "name": "DepthOfCoverageGenomeQ20", 
+                "slots": 1
+            }
+        }, 
+        {
+            "analysis": "DepthOfCoverageGenomeQ30", 
+            "description": "GATK's DepthOfCoverage of >= Q30 bases", 
+            "enable": 1, 
+            "inputFormat": "bam", 
+            "jar": "${GATK}/GenomeAnalysisTK.jar", 
+            "javavm": "-Xmx5G", 
+            "modules": [
+                "${javaModule}"
+            ], 
+            "outdirs": [
+                {
+                    "d_depthOfCoverageGenomeQ30": "${outdir}/coverage"
+                }
+            ], 
+            "outfiles": [
+                {
+                    "f_depthOfCoverage_genome_coverage_hist_Q30": "${d_depthOfCoverageGenomeQ30}/genome_coverage_hist_Q30.txt"
+                }
+            ], 
+            "params": {
+                "--summaryCoverageThreshold": "10", 
+                "-I": "${bam}", 
+                "-R": "${reference}", 
+                "-T": "DepthOfCoverage", 
+                "-mbq": "30", 
+                "-o": "${f_depthOfCoverage_genome_coverage_hist_Q30}"
+            }, 
+            "qsub": {
+                "-l": "h_rt=48:00:00", 
+                "mem": "12G", 
+                "name": "DepthOfCoverageGenomeQ30", 
+                "slots": 1
+            }
+        }, 
+        {
+            "analysis": "Concordance", 
+            "description": "GATK's SelectVariants; outputs VCF file containing concordant records", 
+            "enable": 1, 
+            "inputFormat": "vcf", 
+            "jar": "${GATK}/GenomeAnalysisTK.jar", 
+            "javavm": "-Xmx2G", 
+            "modules": [
+                "${javaModule}"
+            ], 
+            "outdirs": [
+                {
+                    "d_concordance": "${outdir}/concordance"
+                }
+            ], 
+            "outfiles": [
+                {
+                    "f_concordance": "${d_concordance}/concordance.vcf"
+                }
+            ], 
+            "params": {
+                "--concordance": "${dbsnp}", 
+                "--variant": "${vcf}", 
+                "-L": "${refseq_exons}", 
+                "-R": "${reference}", 
+                "-T": "SelectVariants", 
+                "-nt": 8, 
+                "-o": "${f_concordance}"
+            }, 
+            "qsub": {
+                "mem": "2G", 
+                "name": "SelectVariants_concordance", 
+                "slots": 8
+            }
+        }, 
+        {
+            "analysis": "Discordance", 
+            "description": "GATK's SelectVariants; outputs VCF file containing discordant records", 
+            "enable": 1, 
+            "inputFormat": "vcf", 
+            "jar": "${GATK}/GenomeAnalysisTK.jar", 
+            "javavm": "-Xmx2G", 
+            "modules": [
+                "${javaModule}"
+            ], 
+            "outdirs": [
+                {
+                    "d_discordance": "${outdir}/discordance"
+                }
+            ], 
+            "outfiles": [
+                {
+                    "f_discordance": "${d_discordance}/discordance.vcf"
+                }
+            ], 
+            "params": {
+                "--discordance": "${dbsnp}", 
+                "--variant": "${vcf}", 
+                "-L": "${refseq_exons}", 
+                "-R": "${reference}", 
+                "-T": "SelectVariants", 
+                "-nt": 8, 
+                "-o": "${f_discordance}"
+            }, 
+            "qsub": {
+                "mem": "2G", 
+                "name": "SelectVariants_discordance", 
+                "slots": 8
+            }
+        }, 
+        {
+            "analysis": "VariantEval", 
+            "description": "GATK's VariantEval", 
+            "enable": 1, 
+            "inputFormat": "vcf", 
+            "jar": "${GATK}/GenomeAnalysisTK.jar", 
+            "javavm": "-Xmx2G", 
+            "modules": [
+                "${javaModule}"
+            ], 
+            "outdirs": [
+                {
+                    "d_variantEval": "${outdir}/variantEval"
+                }
+            ], 
+            "outfiles": [
+                {
+                    "f_variantEval": "${d_variantEval}/variantEval_metrics.txt"
+                }
+            ], 
+            "params": {
+                "--dbsnp": "${dbsnp}", 
+                "--eval:set1,vcf": "${vcf}", 
+                "-EV CountVariants -EV TiTvVariantEvaluator": "", 
+                "-L": "${refseq_exons}", 
+                "-R": "${reference}", 
+                "-ST": "VariantType", 
+                "-T": "VariantEval", 
+                "-noEV": "", 
+                "-noST": "", 
+                "-nt": 8, 
+                "-o": "${f_variantEval}"
+            }, 
+            "qsub": {
+                "mem": "6G", 
+                "name": "VariantEval", 
+                "slots": 1
+            }
+        }, 
+        {
+            "analysis": "VariantEval_dbsnp", 
+            "description": "GATK's VariantEval dbSNP", 
+            "enable": 1, 
+            "inputFormat": "vcf", 
+            "jar": "${GATK}/GenomeAnalysisTK.jar", 
+            "javavm": "-Xmx2G", 
+            "modules": [
+                "${javaModule}"
+            ], 
+            "outdirs": [
+                {
+                    "d_variantEval_dbsnp": "${outdir}/variantEval-dbsnp"
+                }
+            ], 
+            "outfiles": [
+                {
+                    "f_variantEval_dbsnp": "${d_variantEval_dbsnp}/variantEval_metrics.txt"
+                }
+            ], 
+            "params": {
+                "--dbsnp": "${dbsnp}", 
+                "--eval:set1,vcf": "${vcf}", 
+                "-R": "${reference}", 
+                "-T": "VariantEval", 
+                "-nt": 6, 
+                "-o": "${f_variantEval_dbsnp}"
+            }, 
+            "qsub": {
+                "mem": "12G", 
+                "name": "VariantEval_dbsnp", 
+                "slots": 1
+            }
+        }, 
+        {
+            "analysis": "GenotypeConcordance", 
+            "description": "GATK's GenotypeConcordance", 
+            "enable": 1, 
+            "inputFormat": "vcf", 
+            "jar": "${GATK}/GenomeAnalysisTK.jar", 
+            "javavm": "-Xmx2G", 
+            "modules": [
+                "${javaModule}"
+            ], 
+            "outdirs": [
+                {
+                    "d_genotypeConcordance": "${outdir}/gtConcordance"
+                }
+            ], 
+            "outfiles": [
+                {
+                    "f_genotypeConcordance": "${d_genotypeConcordance}/gtConcordance.txt"
+                }
+            ], 
+            "params": {
+                "--comp": "${dbsnp}", 
+                "--eval:set1,vcf": "${vcf}", 
+                "-R": "${reference}", 
+                "-T": "GenotypeConcordance", 
+                "-o": "${f_genotypeConcordance}"
+            }, 
+            "qsub": {
+                "mem": "6G", 
+                "name": "GenotypeConcordance", 
+                "slots": 1
+            }
+        }, 
+        {
+            "analysis": "CollectAlignmentSummaryMetrics", 
+            "description": "Picard's CollectAlignmentSummaryMetrics", 
+            "enable": 1, 
+            "inputFormat": "bam", 
+            "jar": "${PICARD}/CollectAlignmentSummaryMetrics.jar", 
+            "javavm": "-Xmx4G", 
+            "modules": [
+                "${javaModule}"
+            ], 
+            "outdirs": [
+                {
+                    "d_collectAlignmentSummaryMetrics": "${outdir}/alnSumMetrics"
+                }
+            ], 
+            "outfiles": [
+                {
+                    "f_collectAlignmentSummaryMetrics": "${d_collectAlignmentSummaryMetrics}/alnSummaryMetrics.txt"
+                }
+            ], 
+            "params": {
+                "ASSUME_SORTED=": "true", 
+                "INPUT=": "${bam}", 
+                "METRIC_ACCUMULATION_LEVEL=": "ALL_READS", 
+                "OUTPUT=": "${f_collectAlignmentSummaryMetrics}", 
+                "REFERENCE_SEQUENCE=": "${reference}"
+            }, 
+            "qsub": {
+                "mem": "8G", 
+                "name": "CollectAlignmentSummaryMetrics", 
+                "slots": 1
+            }
+        }, 
+        {
+            "analysis": "CollectGcBiasMetrics", 
+            "description": "Picards CollectGcBiasMetrics", 
+            "enable": 1, 
+            "inputFormat": "bam", 
+            "jar": "${PICARD}/CollectGcBiasMetrics.jar", 
+            "javavm": "-Xmx4G", 
+            "modules": [
+                "${javaModule}", 
+                "${rModule}"
+            ], 
+            "outdirs": [
+                {
+                    "d_collectGcBiasMetrics": "${outdir}/gcBiasMetrics"
+                }
+            ], 
+            "outfiles": [
+                {
+                    "f_collectGcBiasMetrics": "${d_collectGcBiasMetrics}/gcBiasMetrics.txt"
+                }, 
+                {
+                    "f_collectGcBiasMetrics_summary": "${d_collectGcBiasMetrics}/gcBiasMetrics_summary.txt"
+                }, 
+                {
+                    "f_collectGcBiasMetrics_chart": "${d_collectGcBiasMetrics}/gcBiasMetrics_chart.pdf"
+                }
+            ], 
+            "params": {
+                "ASSUME_SORTED=": "true", 
+                "CHART_OUTPUT=": "${f_collectGcBiasMetrics_chart}", 
+                "INPUT=": "${bam}", 
+                "OUTPUT=": "${f_collectGcBiasMetrics}", 
+                "REFERENCE_SEQUENCE=": "${reference}", 
+                "SUMMARY_OUTPUT=": "${f_collectGcBiasMetrics_summary}"
+            }, 
+            "qsub": {
+                "mem": "15G", 
+                "name": "CollectGcBiasMetrics", 
+                "slots": 1
+            }
+        }, 
+        {
+            "analysis": "CollectInsertSizeMetrics", 
+            "description": "Picard's CollectInsertSizeMetrics", 
+            "enable": 1, 
+            "inputFormat": "bam", 
+            "jar": "${PICARD}/CollectInsertSizeMetrics.jar", 
+            "javavm": "-Xmx2G", 
+            "modules": [
+                "${javaModule}", 
+                "${rModule}"
+            ], 
+            "outdirs": [
+                {
+                    "d_collectInsertSizeMetrics": "${outdir}/insertSizeMetrics"
+                }
+            ], 
+            "outfiles": [
+                {
+                    "f_collectInsertSizeMetrics": "${d_collectInsertSizeMetrics}/insertSizeMetrics.txt"
+                }
+            ], 
+            "params": {
+                "ASSUME_SORTED=": "true", 
+                "HISTOGRAM_FILE=": "insertSizeHist.pdf", 
+                "INPUT=": "${bam}", 
+                "METRIC_ACCUMULATION_LEVEL=": "ALL_READS", 
+                "OUTPUT=": "${f_collectInsertSizeMetrics}", 
+                "REFERENCE_SEQUENCE=": "${reference}"
+            }, 
+            "qsub": {
+                "mem": "10G", 
+                "name": "CollectInsertSizeMetrics", 
+                "slots": 1
+            }
+        }, 
+        {
+            "analysis": "MeanQualityByCycle", 
+            "description": "Picard's MeanQualityByCycle", 
+            "enable": 1, 
+            "inputFormat": "bam", 
+            "jar": "${PICARD}/MeanQualityByCycle.jar", 
+            "javavm": "-Xmx2G", 
+            "modules": [
+                "${javaModule}", 
+                "${rModule}"
+            ], 
+            "outdirs": [
+                {
+                    "d_meanQualityByCycle": "${outdir}/meanQualByCycle"
+                }
+            ], 
+            "outfiles": [
+                {
+                    "f_meanQualityByCycle": "${d_meanQualityByCycle}/meanQuaByCycle.txt"
+                }, 
+                {
+                    "f_meanQualityByCycle_pdf": "${d_meanQualityByCycle}/meanQualByCycle.pdf"
+                }
+            ], 
+            "params": {
+                "ALIGNED_READS_ONLY=": "true", 
+                "ASSUME_SORTED=": "true", 
+                "CHART_OUTPUT=": "${f_meanQualityByCycle_pdf}", 
+                "INPUT=": "${bam}", 
+                "OUTPUT=": "${f_meanQualityByCycle}", 
+                "PF_READS_ONLY=": "true", 
+                "REFERENCE_SEQUENCE=": "${reference}"
+            }, 
+            "qsub": {
+                "mem": "10G", 
+                "name": "MeanQualityByCycle", 
+                "slots": 1
+            }
+        }, 
+        {
+            "analysis": "QualityScoreDistribution", 
+            "description": "Picard's QualityScoreDistribution", 
+            "enable": 1, 
+            "inputFormat": "bam", 
+            "jar": "${PICARD}/QualityScoreDistribution.jar", 
+            "javavm": "-Xmx2G", 
+            "modules": [
+                "${javaModule}", 
+                "${rModule}"
+            ], 
+            "outdirs": [
+                {
+                    "d_qualityScoreDistribution": "${outdir}/qcScoreDist"
+                }
+            ], 
+            "outfiles": [
+                {
+                    "f_qualityScoreDistribution": "${d_qualityScoreDistribution}/qualScoreDist.txt"
+                }, 
+                {
+                    "f_qualityScoreDistribution_chart": "${d_qualityScoreDistribution}/qualScoreDist_chart.pdf"
+                }
+            ], 
+            "params": {
+                "ALIGNED_READS_ONLY=": "true", 
+                "ASSUME_SORTED=": "true", 
+                "CHART_OUTPUT=": "${f_qualityScoreDistribution_chart}", 
+                "INPUT=": "${bam}", 
+                "OUTPUT=": "${f_qualityScoreDistribution}", 
+                "PF_READS_ONLY=": "true", 
+                "REFERENCE_SEQUENCE=": "${reference}"
+            }, 
+            "qsub": {
+                "mem": "12G", 
+                "name": "QualityScoreDistribution", 
+                "slots": 1
+            }
+        }, 
+        {
+            "analysis": "SnpEff", 
+            "args": [
+                "${vcf}", 
+                ">", 
+                "${f_snpEff_vcf}"
+            ], 
+            "description": "Variant annotator and effect prediction tool", 
+            "enable": 1, 
+            "inputFormat": "vcf", 
+            "jar": "${SNPEFF}/snpEff.jar eff", 
+            "javavm": "-Xmx4G", 
+            "modules": [
+                "${javaModule}", 
+                "snpeff"
+            ], 
+            "outdirs": [
+                {
+                    "d_SnpEff": "${outdir}/SnpEff"
+                }
+            ], 
+            "outfiles": [
+                {
+                    "f_snpEff_vcf": "${d_SnpEff}/$(basename ${vcf%.*}_snpeff.vcf)"
+                }
+            ], 
+            "params": {
+                "-c": "${SNPEFF}/snpEff.config", 
+                "-v": "${reference_SnpEff}"
+            }, 
+            "qsub": {
+                "directory": "${d_SnpEff}", 
+                "mem": "7G", 
+                "name": "SnpEff", 
+                "slots": 1
+            }
+        }, 
+        {
+            "analysis": "coverage_stats", 
+            "description": "Genelist-specific and average coverage", 
+            "enable": 1, 
+            "modules": [
+                "python/3.4"
+            ], 
+            "program": "${coverage_stats}/coverage_stats.py",
+            "params": {
+                "--fullqcdir": "${outdir}"
+            }, 
+            "qsub": {
+                "mem": "1G", 
+                "name": "coverage_stats", 
+                "slots": 1
+            },
+            "dependencies": ["DepthOfCoverageRefseqExonsQ0","DepthOfCoverageRefseqExonsQ10","DepthOfCoverageRefseqExonsQ20","DepthOfCoverageRefseqExonsQ30","DepthOfCoverageGenomeQ0","DepthOfCoverageGenomeQ10","DepthOfCoverageGenomeQ20","DepthOfCoverageGenomeQ30"]
+        }
+    ], 
+    "globalQsub": {
+        "-A": "clinical-services", 
+        "-M": "iliao@stanford.edu", 
+        "-R": "y", 
+        "-l": "h_rt=36:00:00", 
+        "-m": "a"
+    }, 
+    "resources": {
+        "GATK": "/srv/gs1/software/gatk/gatk-3.1.1/GenomeAnalysisTK-nightly-2014-04-07-g8f6ff32", 
+        "PICARD": "/srv/gs1/software/picard-tools/1.111", 
+        "SNPEFF": "/srv/gs1/software/snpeff/3.6", 
+        "coverage_stats": "/srv/gsfs0/SCGS/pipeline/coverage_stats/0.4", 
+        "dbsnp": "/srv/gs1/projects/scg/Resources/GATK/hg19-3.0/dbsnp_138.hg19.vcf", 
+        "fastqcModule": "fastqc/0.10.1", 
+        "javaModule": "java/latest", 
+        "rModule": "r", 
+        "reference": "/srv/gs1/projects/scg/Resources/GATK/hg19-3.0/ucsc.hg19.fasta", 
+        "reference_SnpEff": "hg19", 
+        "refseq_exons": "/srv/gsfs0/SCGS/dbases/refSeq/refseq_exons.bed", 
+        "samtoolsModule": "samtools/0.1.19"
+    }, 
+    "version": "2.1.0"
+}
