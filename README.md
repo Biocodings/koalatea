@@ -1,5 +1,7 @@
 ![koalatea](/koalatea.png?raw=true)
 
+Requires Python 3 and jsonwf.
+
     usage: koalatea.py [-h] inputjson medgapdir
 
     positional arguments:

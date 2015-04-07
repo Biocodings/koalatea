@@ -1,4 +1,5 @@
 {
+    "version": "2.1",
     "analyses": [
         {
             "analysis": "fastqc", 
@@ -773,6 +774,5 @@
         "reference_SnpEff": "hg19", 
         "refseq_exons": "/srv/gsfs0/SCGS/dbases/refSeq/refseq_exons.bed", 
         "samtoolsModule": "samtools/0.1.19"
-    }, 
-    "version": "2.1.0"
+    } 
 }
