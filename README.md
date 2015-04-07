@@ -1,4 +1,5 @@
 # koalatea
+![koalatea](/koalatea.png?raw=true)
     usage: koalatea.py [-h] inputjson medgapdir
 
     positional arguments:
