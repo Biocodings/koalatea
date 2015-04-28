@@ -1,5 +1,5 @@
 {
-    "version": "2.1",
+    "version": "2.2",
     "analyses": [
         {
             "analysis": "fastqc", 
@@ -749,9 +749,29 @@
             "qsub": {
                 "mem": "1G", 
                 "name": "coverage_stats", 
-                "slots": 1
+                "slots": 1,
+                "host": "localhost"
             },
             "dependencies": ["DepthOfCoverageRefseqExonsQ0","DepthOfCoverageRefseqExonsQ10","DepthOfCoverageRefseqExonsQ20","DepthOfCoverageRefseqExonsQ30","DepthOfCoverageGenomeQ0","DepthOfCoverageGenomeQ10","DepthOfCoverageGenomeQ20","DepthOfCoverageGenomeQ30"]
+        },
+        {
+            "analysis": "pubble", 
+            "description": "QC report generation", 
+            "enable": 1, 
+            "modules": [
+                "python/3.4",
+                "texlive"
+            ], 
+            "program": "${pubble}/makereport.py",
+            "params": {
+                "--fullqcdir": "${outdir}"
+            }, 
+            "qsub": {
+                "mem": "1G", 
+                "name": "pubble", 
+                "slots": 1
+            },
+            "dependencies": ["coverage_stats"]
         }
     ], 
     "globalQsub": {
@@ -766,6 +786,7 @@
         "PICARD": "/srv/gs1/software/picard-tools/1.111", 
         "SNPEFF": "/srv/gs1/software/snpeff/3.6", 
         "coverage_stats": "/srv/gsfs0/SCGS/pipeline/coverage_stats/0.4", 
+        "pubble": "/srv/gsfs0/SCGS/pipeline/pubble/1.0",
         "dbsnp": "/srv/gs1/projects/scg/Resources/GATK/hg19-3.0/dbsnp_138.hg19.vcf", 
         "fastqcModule": "fastqc/0.10.1", 
         "javaModule": "java/latest", 
