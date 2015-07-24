@@ -1,5 +1,5 @@
 {
-    "version": "2.3",
+    "version": "2.4",
     "analyses": [
         {
             "analysis": "fastqc", 
@@ -759,7 +759,7 @@
             "description": "QC report generation", 
             "enable": 1, 
             "modules": [
-                "pubble/1.1"
+                "pubble/1.2"
             ], 
             "program": "pubble.py",
             "args": [
