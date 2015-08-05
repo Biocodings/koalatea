@@ -1,5 +1,5 @@
 {
-    "version": "2.4",
+    "version": "2.4.1",
     "analyses": [
         {
             "analysis": "fastqc", 
@@ -770,7 +770,7 @@
                 "name": "pubble", 
                 "slots": 1
             },
-            "dependencies": ["coverage_stats"]
+            "dependencies": ["coverage_stats", "FastQC", "MeanQualityByCycle", "QualityScoreDistribution"]
         }
     ], 
     "globalQsub": {
