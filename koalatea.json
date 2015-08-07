@@ -1,8 +1,8 @@
 {
-    "version": "2.4.2",
+    "version": "2.4.3",
     "analyses": [
         {
-            "analysis": "fastqc", 
+            "analysis": "FastQC", 
             "args": [
                 "${bam}"
             ], 
@@ -770,7 +770,7 @@
                 "name": "pubble", 
                 "slots": 1
             },
-            "dependencies": ["coverage_stats", "FastQC", "MeanQualityByCycle", "QualityScoreDistribution"]
+            "dependencies": ["coverage_stats", "FastQC", "MeanQualityByCycle", "QualityScoreDistribution", "CollectGcBiasMetrics", "CollectInsertSizeMetrics", "CollectAlignmentSummaryMetrics"]
         }
     ], 
     "globalQsub": {
