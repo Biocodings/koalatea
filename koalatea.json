@@ -801,7 +801,6 @@
         "GATK": "/srv/gs1/software/gatk/gatk-3.1.1/GenomeAnalysisTK-nightly-2014-04-07-g8f6ff32", 
         "PICARD": "/srv/gs1/software/picard-tools/1.111", 
         "SNPEFF": "/srv/gs1/software/snpeff/3.6", 
-        "coverage_stats": "/srv/gsfs0/SCGS/pipeline/coverage_stats/0.4.1", 
         "dbsnp": "/srv/gs1/projects/scg/Resources/GATK/hg19-3.0/dbsnp_138.hg19.vcf", 
         "fastqcModule": "fastqc/0.10.1", 
         "javaModule": "java/latest", 
