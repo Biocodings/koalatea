@@ -756,9 +756,10 @@
             "description": "Genelist-specific and average coverage", 
             "enable": 1, 
             "modules": [
-                "python/3.4"
+                "python/3.4",
+                "${coverage_statsModule}"
             ], 
-            "program": "${coverage_stats}/coverage_stats.py",
+            "program": "coverage_stats.py",
             "params": {
                 "--fullqcdir": "${outdir}"
             }, 
@@ -775,7 +776,7 @@
             "description": "QC report generation", 
             "enable": 1, 
             "modules": [
-                "pubble/1.2.1"
+                "${pubbleModule}"
             ], 
             "program": "pubble.py",
             "args": [
@@ -808,6 +809,8 @@
         "reference": "/srv/gs1/projects/scg/Resources/GATK/hg19-3.0/ucsc.hg19.fasta", 
         "reference_SnpEff": "hg19", 
         "refseq_exons": "/srv/gsfs0/SCGS/dbases/refSeq/refseq_exons.bed", 
-        "samtoolsModule": "samtools/0.1.19"
+        "samtoolsModule": "samtools/0.1.19",
+        "coverage_statsModule": "coverage_stats/0.4.1",
+        "pubbleModule": "pubble/1.2.2"
     } 
 }
