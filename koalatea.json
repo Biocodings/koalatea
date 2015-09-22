@@ -1,5 +1,5 @@
 {
-    "version": "2.4.3",
+    "version": "2.4.4",
     "analyses": [
         {
             "analysis": "FastQC", 
@@ -202,7 +202,7 @@
             "enable": 1, 
             "inputFormat": "bam", 
             "jar": "${GATK}/GenomeAnalysisTK.jar", 
-            "javavm": "-Xmx5G", 
+            "javavm": "-Xmx18G", 
             "modules": [
                 "${javaModule}"
             ], 
@@ -221,13 +221,17 @@
                 "-I": "${bam}", 
                 "-R": "${reference}", 
                 "-T": "DepthOfCoverage", 
-                "-o": "${f_depthOfCoverage_genome_coverage_hist_Q0}"
+                "-o": "${f_depthOfCoverage_genome_coverage_hist_Q0}",
+                "-nt": 4
             }, 
+            "args": [
+                "--omitIntervalStatistics"
+            ], 
             "qsub": {
                 "-l": "h_rt=48:00:00", 
-                "mem": "12G", 
+                "mem": "18G", 
                 "name": "DepthOfCoverageGenomeQ0", 
-                "slots": 1
+                "slots": 4
             }
         }, 
         {
@@ -236,7 +240,7 @@
             "enable": 1, 
             "inputFormat": "bam", 
             "jar": "${GATK}/GenomeAnalysisTK.jar", 
-            "javavm": "-Xmx5G", 
+            "javavm": "-Xmx18G", 
             "modules": [
                 "${javaModule}"
             ], 
@@ -256,13 +260,17 @@
                 "-R": "${reference}", 
                 "-T": "DepthOfCoverage", 
                 "-mbq": "10", 
-                "-o": "${f_depthOfCoverage_genome_coverage_hist_Q10}"
+                "-o": "${f_depthOfCoverage_genome_coverage_hist_Q10}",
+                "-nt": 4
             }, 
+            "args": [
+                "--omitIntervalStatistics"
+            ], 
             "qsub": {
                 "-l": "h_rt=48:00:00", 
-                "mem": "12G", 
+                "mem": "18G", 
                 "name": "DepthOfCoverageGenomeQ10", 
-                "slots": 1
+                "slots": 4
             }
         }, 
         {
@@ -271,7 +279,7 @@
             "enable": 1, 
             "inputFormat": "bam", 
             "jar": "${GATK}/GenomeAnalysisTK.jar", 
-            "javavm": "-Xmx5G", 
+            "javavm": "-Xmx18G", 
             "modules": [
                 "${javaModule}"
             ], 
@@ -291,13 +299,17 @@
                 "-R": "${reference}", 
                 "-T": "DepthOfCoverage", 
                 "-mbq": "20", 
-                "-o": "${f_depthOfCoverage_genome_coverage_hist_Q20}"
+                "-o": "${f_depthOfCoverage_genome_coverage_hist_Q20}",
+                "-nt": 4
             }, 
+            "args": [
+                "--omitIntervalStatistics"
+            ], 
             "qsub": {
                 "-l": "h_rt=48:00:00", 
-                "mem": "12G", 
+                "mem": "18G", 
                 "name": "DepthOfCoverageGenomeQ20", 
-                "slots": 1
+                "slots": 4
             }
         }, 
         {
@@ -306,7 +318,7 @@
             "enable": 1, 
             "inputFormat": "bam", 
             "jar": "${GATK}/GenomeAnalysisTK.jar", 
-            "javavm": "-Xmx5G", 
+            "javavm": "-Xmx18G", 
             "modules": [
                 "${javaModule}"
             ], 
@@ -326,13 +338,17 @@
                 "-R": "${reference}", 
                 "-T": "DepthOfCoverage", 
                 "-mbq": "30", 
-                "-o": "${f_depthOfCoverage_genome_coverage_hist_Q30}"
+                "-o": "${f_depthOfCoverage_genome_coverage_hist_Q30}",
+                "-nt": 4
             }, 
+            "args": [
+                "--omitIntervalStatistics"
+            ], 
             "qsub": {
                 "-l": "h_rt=48:00:00", 
-                "mem": "12G", 
+                "mem": "18G", 
                 "name": "DepthOfCoverageGenomeQ30", 
-                "slots": 1
+                "slots": 4
             }
         }, 
         {
@@ -784,7 +800,7 @@
         "GATK": "/srv/gs1/software/gatk/gatk-3.1.1/GenomeAnalysisTK-nightly-2014-04-07-g8f6ff32", 
         "PICARD": "/srv/gs1/software/picard-tools/1.111", 
         "SNPEFF": "/srv/gs1/software/snpeff/3.6", 
-        "coverage_stats": "/srv/gsfs0/SCGS/pipeline/coverage_stats/0.4", 
+        "coverage_stats": "/srv/gsfs0/SCGS/pipeline/coverage_stats/0.4.1", 
         "dbsnp": "/srv/gs1/projects/scg/Resources/GATK/hg19-3.0/dbsnp_138.hg19.vcf", 
         "fastqcModule": "fastqc/0.10.1", 
         "javaModule": "java/latest", 
