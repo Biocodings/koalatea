@@ -2,11 +2,13 @@
 
 Requires Python 3 and jsonwf.
 
-    usage: koalatea.py [-h] inputjson medgapdir
+    usage: koalatea [-h] [-c CONF] medgapdir bamfile vcffile
 
     positional arguments:
-      inputjson
       medgapdir
+      bamfile
+      vcffile
 
     optional arguments:
-      -h, --help  show this help message and exit
+      -h, --help            show this help message and exit
+      -c CONF, --conf CONF  Input configuration JSON 
