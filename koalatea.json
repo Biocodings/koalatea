@@ -1,5 +1,5 @@
 {
-    "version": "2.4.5",
+    "version": "2.5.0",
     "analyses": [
         {
             "analysis": "FastQC", 
@@ -222,16 +222,17 @@
                 "-R": "${reference}", 
                 "-T": "DepthOfCoverage", 
                 "-o": "${f_depthOfCoverage_genome_coverage_hist_Q0}",
-                "-nt": 4
+                "-nt": 1
             }, 
             "args": [
-                "--omitIntervalStatistics"
+                "--omitIntervalStatistics",
+                "--omitDepthOutputAtEachBase"
             ], 
             "qsub": {
                 "-l": "h_rt=48:00:00", 
                 "mem": "18G", 
                 "name": "DepthOfCoverageGenomeQ0", 
-                "slots": 4
+                "slots": 1
             }
         }, 
         {
@@ -261,16 +262,17 @@
                 "-T": "DepthOfCoverage", 
                 "-mbq": "10", 
                 "-o": "${f_depthOfCoverage_genome_coverage_hist_Q10}",
-                "-nt": 4
+                "-nt": 1
             }, 
             "args": [
-                "--omitIntervalStatistics"
+                "--omitIntervalStatistics",
+                "--omitDepthOutputAtEachBase"
             ], 
             "qsub": {
                 "-l": "h_rt=48:00:00", 
                 "mem": "18G", 
                 "name": "DepthOfCoverageGenomeQ10", 
-                "slots": 4
+                "slots": 1
             }
         }, 
         {
@@ -300,16 +302,17 @@
                 "-T": "DepthOfCoverage", 
                 "-mbq": "20", 
                 "-o": "${f_depthOfCoverage_genome_coverage_hist_Q20}",
-                "-nt": 4
+                "-nt": 1
             }, 
             "args": [
-                "--omitIntervalStatistics"
+                "--omitIntervalStatistics",
+                "--omitDepthOutputAtEachBase"
             ], 
             "qsub": {
                 "-l": "h_rt=48:00:00", 
                 "mem": "18G", 
                 "name": "DepthOfCoverageGenomeQ20", 
-                "slots": 4
+                "slots": 1
             }
         }, 
         {
@@ -339,16 +342,17 @@
                 "-T": "DepthOfCoverage", 
                 "-mbq": "30", 
                 "-o": "${f_depthOfCoverage_genome_coverage_hist_Q30}",
-                "-nt": 4
+                "-nt": 1
             }, 
             "args": [
-                "--omitIntervalStatistics"
+                "--omitIntervalStatistics",
+                "--omitDepthOutputAtEachBase"
             ], 
             "qsub": {
                 "-l": "h_rt=48:00:00", 
                 "mem": "18G", 
                 "name": "DepthOfCoverageGenomeQ30", 
-                "slots": 4
+                "slots": 1
             }
         }, 
         {
