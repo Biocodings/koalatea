@@ -63,7 +63,7 @@
             "enable": 1, 
             "inputFormat": "bam", 
             "jar": "${GATK}/GenomeAnalysisTK.jar", 
-            "javavm": "-Xmx5G", 
+            "javavm": "-Xmx6G", 
             "modules": [
                 "${javaModule}"
             ], 
@@ -86,7 +86,7 @@
                 "-o": "${f_depthOfCoverage_refseq_exons_coverage_hist_Q0}"
             }, 
             "qsub": {
-                "mem": "12G", 
+                "mem": "8G", 
                 "name": "DepthOfCoverageRefseqExonsQ0", 
                 "slots": 1
             }
@@ -97,7 +97,7 @@
             "enable": 1, 
             "inputFormat": "bam", 
             "jar": "${GATK}/GenomeAnalysisTK.jar", 
-            "javavm": "-Xmx5G", 
+            "javavm": "-Xmx6G", 
             "modules": [
                 "${javaModule}"
             ], 
@@ -121,7 +121,7 @@
                 "-o": "${f_depthOfCoverage_refseq_exons_coverage_hist_Q10}"
             }, 
             "qsub": {
-                "mem": "12G", 
+                "mem": "8G", 
                 "name": "DepthOfCoverageRefseqExonsQ10", 
                 "slots": 1
             }
@@ -132,7 +132,7 @@
             "enable": 1, 
             "inputFormat": "bam", 
             "jar": "${GATK}/GenomeAnalysisTK.jar", 
-            "javavm": "-Xmx5G", 
+            "javavm": "-Xmx6G", 
             "modules": [
                 "${javaModule}"
             ], 
@@ -156,7 +156,7 @@
                 "-o": "${f_depthOfCoverage_refseq_exons_coverage_hist_Q20}"
             }, 
             "qsub": {
-                "mem": "12G", 
+                "mem": "8G", 
                 "name": "DepthOfCoverageRefseqExonsQ20", 
                 "slots": 1
             }
@@ -167,7 +167,7 @@
             "enable": 1, 
             "inputFormat": "bam", 
             "jar": "${GATK}/GenomeAnalysisTK.jar", 
-            "javavm": "-Xmx5G", 
+            "javavm": "-Xmx6G", 
             "modules": [
                 "${javaModule}"
             ], 
@@ -191,7 +191,7 @@
                 "-o": "${f_depthOfCoverage_refseq_exons_coverage_hist_Q30}"
             }, 
             "qsub": {
-                "mem": "12G", 
+                "mem": "8G", 
                 "name": "DepthOfCoverageRefseqExonsQ30", 
                 "slots": 1
             }
@@ -202,7 +202,7 @@
             "enable": 1, 
             "inputFormat": "bam", 
             "jar": "${GATK}/GenomeAnalysisTK.jar", 
-            "javavm": "-Xmx18G", 
+            "javavm": "-Xmx6G", 
             "modules": [
                 "${javaModule}"
             ], 
@@ -230,7 +230,7 @@
             ], 
             "qsub": {
                 "-l": "h_rt=48:00:00", 
-                "mem": "18G", 
+                "mem": "8G", 
                 "name": "DepthOfCoverageGenomeQ0", 
                 "slots": 1
             }
@@ -241,7 +241,7 @@
             "enable": 1, 
             "inputFormat": "bam", 
             "jar": "${GATK}/GenomeAnalysisTK.jar", 
-            "javavm": "-Xmx18G", 
+            "javavm": "-Xmx6G", 
             "modules": [
                 "${javaModule}"
             ], 
@@ -270,7 +270,7 @@
             ], 
             "qsub": {
                 "-l": "h_rt=48:00:00", 
-                "mem": "18G", 
+                "mem": "8G", 
                 "name": "DepthOfCoverageGenomeQ10", 
                 "slots": 1
             }
@@ -281,7 +281,7 @@
             "enable": 1, 
             "inputFormat": "bam", 
             "jar": "${GATK}/GenomeAnalysisTK.jar", 
-            "javavm": "-Xmx18G", 
+            "javavm": "-Xmx6G", 
             "modules": [
                 "${javaModule}"
             ], 
@@ -310,7 +310,7 @@
             ], 
             "qsub": {
                 "-l": "h_rt=48:00:00", 
-                "mem": "18G", 
+                "mem": "8G", 
                 "name": "DepthOfCoverageGenomeQ20", 
                 "slots": 1
             }
@@ -321,7 +321,7 @@
             "enable": 1, 
             "inputFormat": "bam", 
             "jar": "${GATK}/GenomeAnalysisTK.jar", 
-            "javavm": "-Xmx18G", 
+            "javavm": "-Xmx6G", 
             "modules": [
                 "${javaModule}"
             ], 
@@ -350,7 +350,7 @@
             ], 
             "qsub": {
                 "-l": "h_rt=48:00:00", 
-                "mem": "18G", 
+                "mem": "8G", 
                 "name": "DepthOfCoverageGenomeQ30", 
                 "slots": 1
             }
