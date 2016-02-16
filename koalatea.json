@@ -810,6 +810,6 @@
         "refseq_exons": "/srv/gsfs0/SCGS/dbases/refSeq/refseq_exons.bed", 
         "samtoolsModule": "samtools/0.1.19",
         "coverage_statsModule": "coverage_stats/0.4.1",
-        "pubbleModule": "pubble/1.2.2"
+        "pubbleModule": "pubble/1.2.3"
     } 
 }
