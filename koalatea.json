@@ -1,5 +1,5 @@
 {
-    "version": "2.5.1",
+    "version": "2.5.3",
     "analyses": [
         {
             "analysis": "FastQC", 
@@ -86,7 +86,7 @@
                 "-o": "${f_depthOfCoverage_refseq_exons_coverage_hist_Q0}"
             }, 
             "qsub": {
-                "mem": "8G", 
+                "mem": "10G", 
                 "name": "DepthOfCoverageRefseqExonsQ0", 
                 "slots": 1
             }
@@ -121,7 +121,7 @@
                 "-o": "${f_depthOfCoverage_refseq_exons_coverage_hist_Q10}"
             }, 
             "qsub": {
-                "mem": "8G", 
+                "mem": "10G", 
                 "name": "DepthOfCoverageRefseqExonsQ10", 
                 "slots": 1
             }
@@ -156,7 +156,7 @@
                 "-o": "${f_depthOfCoverage_refseq_exons_coverage_hist_Q20}"
             }, 
             "qsub": {
-                "mem": "8G", 
+                "mem": "10G", 
                 "name": "DepthOfCoverageRefseqExonsQ20", 
                 "slots": 1
             }
@@ -191,7 +191,7 @@
                 "-o": "${f_depthOfCoverage_refseq_exons_coverage_hist_Q30}"
             }, 
             "qsub": {
-                "mem": "8G", 
+                "mem": "10G", 
                 "name": "DepthOfCoverageRefseqExonsQ30", 
                 "slots": 1
             }
@@ -229,7 +229,7 @@
             ], 
             "qsub": {
                 "-l": "h_rt=48:00:00", 
-                "mem": "8G", 
+                "mem": "10G", 
                 "name": "DepthOfCoverageGenomeQ0", 
                 "slots": 1
             }
@@ -268,7 +268,7 @@
             ], 
             "qsub": {
                 "-l": "h_rt=48:00:00", 
-                "mem": "8G", 
+                "mem": "10G", 
                 "name": "DepthOfCoverageGenomeQ10", 
                 "slots": 1
             }
@@ -307,7 +307,7 @@
             ], 
             "qsub": {
                 "-l": "h_rt=48:00:00", 
-                "mem": "8G", 
+                "mem": "10G", 
                 "name": "DepthOfCoverageGenomeQ20", 
                 "slots": 1
             }
@@ -346,7 +346,7 @@
             ], 
             "qsub": {
                 "-l": "h_rt=48:00:00", 
-                "mem": "8G", 
+                "mem": "10G", 
                 "name": "DepthOfCoverageGenomeQ30", 
                 "slots": 1
             }
@@ -624,7 +624,7 @@
             ], 
             "params": {
                 "ASSUME_SORTED=": "true", 
-                "HISTOGRAM_FILE=": "insertSizeHist.pdf", 
+                "HISTOGRAM_FILE=": "${d_collectInsertSizeMetrics}/insertSizeHist.pdf", 
                 "INPUT=": "${bam}", 
                 "METRIC_ACCUMULATION_LEVEL=": "ALL_READS", 
                 "OUTPUT=": "${f_collectInsertSizeMetrics}", 
