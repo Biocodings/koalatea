@@ -719,14 +719,14 @@
             "description": "Coverage of validated OMIM genes",
             "enable": 1, 
             "inputFormat": "bam", 
-            "jar": "${GATK_3.4.0}/GenomeAnalysisTK.jar", 
+            "jar": "${GATK_3_4_0}/GenomeAnalysisTK.jar", 
             "javavm": "-Xmx6G", 
             "modules": [
                 "${javaModule}"
             ], 
             "outdirs": [
                 {
-                    "d_omimValidatedCoverage": "${outdir}/omim-validated-coverage"
+                    "d_omimValidatedCoverage": "${outdir}/omimValidatedCoverage"
                 }
             ], 
             "params": {
@@ -796,7 +796,7 @@
     }, 
     "resources": {
         "GATK": "/srv/gsfs0/software/gatk/gatk-3.1.1/GenomeAnalysisTK-nightly-2014-04-07-g8f6ff32", 
-        "GATK_3.4.0": "/srv/gsfs0/software/gatk/gatk-3.4.0", 
+        "GATK_3_4_0": "/srv/gsfs0/software/gatk/gatk-3.4.0", 
         "PICARD": "/srv/gsfs0/software/picard-tools/1.111", 
         "dbsnp": "/srv/gsfs0/SCGS/resources/GATK/hg19-3.0/dbsnp_138.hg19.vcf", 
         "fastqcModule": "fastqc/0.10.1", 
