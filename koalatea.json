@@ -729,10 +729,15 @@
                     "d_omimValidatedCoverage": "${outdir}/omimValidatedCoverage"
                 }
             ], 
+            "outfiles": [
+                {
+                    "f_omimValidatedCoverageBasename": "${d_omimValidatedCoverage}/omim_validated_coverage"
+                }
+            ], 
             "params": {
                 "-T": "DepthOfCoverage",
                 "-R": "${reference}", 
-                "-o": "${d_omimValidatedCoverage}",
+                "-o": "${f_omimValidatedCoverageBasename}",
                 "-ct": "20",
                 "-I": "${bam}", 
                 "-geneList": "${omim_validated_genelist}",
@@ -800,7 +805,7 @@
         "PICARD": "/srv/gsfs0/software/picard-tools/1.111", 
         "dbsnp": "/srv/gsfs0/SCGS/resources/GATK/hg19-3.0/dbsnp_138.hg19.vcf", 
         "fastqcModule": "fastqc/0.10.1", 
-        "javaModule": "java/8u66", 
+        "javaModule": "java/7u03", 
         "rModule": "r", 
         "reference": "/srv/gsfs0/SCGS/resources/GATK/hg19-3.0/ucsc.hg19.fasta", 
         "refseq_exons": "/srv/gsfs0/SCGS/dbases/refSeq/refseq_exons.bed", 
