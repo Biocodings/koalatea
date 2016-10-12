@@ -1,5 +1,5 @@
 {
-    "version": "2.6.0",
+    "version": "2.6.1",
     "analyses": [
         {
             "analysis": "FastQC", 
@@ -228,7 +228,7 @@
                 "--omitIntervalStatistics"
             ], 
             "qsub": {
-                "-l": "h_rt=48:00:00", 
+                "-l": "h_rt=100:00:00", 
                 "mem": "10G", 
                 "name": "DepthOfCoverageGenomeQ0", 
                 "slots": 1
@@ -267,7 +267,7 @@
                 "--omitIntervalStatistics"
             ], 
             "qsub": {
-                "-l": "h_rt=48:00:00", 
+                "-l": "h_rt=100:00:00", 
                 "mem": "10G", 
                 "name": "DepthOfCoverageGenomeQ10", 
                 "slots": 1
@@ -306,7 +306,7 @@
                 "--omitIntervalStatistics"
             ], 
             "qsub": {
-                "-l": "h_rt=48:00:00", 
+                "-l": "h_rt=100:00:00", 
                 "mem": "10G", 
                 "name": "DepthOfCoverageGenomeQ20", 
                 "slots": 1
@@ -345,7 +345,7 @@
                 "--omitIntervalStatistics"
             ], 
             "qsub": {
-                "-l": "h_rt=48:00:00", 
+                "-l": "h_rt=100:00:00", 
                 "mem": "10G", 
                 "name": "DepthOfCoverageGenomeQ30", 
                 "slots": 1
